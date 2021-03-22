@@ -6,7 +6,7 @@ const params = new URLSearchParams(window.location.search);
 fetch(`http://localhost:3000/api/furniture/${params.get('id')}`)
     .then(response => {
         if (response.ok) {
-            return data = response.json()
+            return response.json()
         } else {
             Promise.reject(response.status);
         };
@@ -37,7 +37,7 @@ fetch(`http://localhost:3000/api/furniture/${params.get('id')}`)
                             <div class="col-auto my-1 pb-5 mt-4">
                                 <label class="mr-sm-2" for="inlineFormCustomSelect">Objectifs</label>
                                 <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                    ${lens}   
+                                    ${varnished}   
                                 </select>        
                             </div>
                         <p><strong>Prix total</strong> : <span id="totalPrice">${priceProdUnit}</span> €</p>
