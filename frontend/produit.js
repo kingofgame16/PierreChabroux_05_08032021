@@ -4,14 +4,14 @@ const params = new URLSearchParams(window.location.search);
     
 //j'injecte l'id du produit clické dans le fetch
 fetch(`https://ab-p5-api.herokuapp.com/api/furniture/${params.get('id')}`)
-  .then(response => {
+.then(response => {
     if (response.ok) {
-      return response.json()
+        return response.json()
     } else {
-      Promise.reject(response.status);
+        Promise.reject(response.status);
     }
-  })
-  .then(data => {
+})
+    .then(data => {
     //--variable vide + boucle pour créer le select 
     let varnished = '';
 
