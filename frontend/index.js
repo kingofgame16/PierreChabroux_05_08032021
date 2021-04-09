@@ -1,4 +1,4 @@
-const inHtml = document.getElementById('main'); //récupération id=main
+const Element1 = document.getElementById('main'); //récupération id=main
 
 fetch('https://ab-p5-api.herokuapp.com/api/furniture') //fetch sur l'url de l'API
     .then(response => { // me renvoie un premiere prommesse
@@ -14,7 +14,7 @@ fetch('https://ab-p5-api.herokuapp.com/api/furniture') //fetch sur l'url de l'AP
             let priceProd = objet.price / 100; //variable prix pour le diviser par 100
 
             //j'injecte mon HTML avec les bonnes variables directement dans le DOM
-            inHtml.innerHTML += `
+            Element1.innerHTML += `
                 <div class="card card-body col-12 col-md-6 col-lg-4 mx-auto m-2">
                     <img alt="${objet.name}" class="img-fluid" src="${objet.imageUrl}">
                     <h2>${objet.name}</h2>

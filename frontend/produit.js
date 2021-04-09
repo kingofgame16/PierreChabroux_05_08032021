@@ -1,4 +1,4 @@
-const inHtml = document.getElementById('main');
+const Element2 = document.getElementById('main');
 const params = new URLSearchParams(window.location.search);
     
     
@@ -20,7 +20,7 @@ fetch(`https://ab-p5-api.herokuapp.com/api/furniture/${params.get('id')}`)
     })
 
     //--Ecriture du HTML en dynamique
-    inHtml.innerHTML += `
+    Element2.innerHTML += `
             <div class="card card-body col-12 col-lg-6">
                 <img alt="${data.name}" class="img-fluid" src="${data.imageUrl}">
             </div>
