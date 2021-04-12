@@ -9,16 +9,8 @@ if(basket !== null){
 
 
 
-/* if(data === null){
-    const EmptyBasket = `
-    <div class="container-fluid">
-        <img class="center-block gif" alt="" src="images/polizas_gif.gif" />
-        <p class="text-center lead">Votre panier est vide :'(</p>
-    </div>`; 
 
-    Element3.innerHTML = EmptyBasket;
-
-}else{
+/* }else{
     let structurePanier =[]
 
 for(k=0; k < data.length; k++){
@@ -47,15 +39,6 @@ if(k == data.length){
     Element3.innerHTML = structurePanier;
 }
 } */
-
-
-
-
-
-
-
-
-
 
 //const btnCommande = document.getElementById("btnCom");
 

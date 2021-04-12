@@ -1,5 +1,5 @@
 const uuid = require('uuid/v1');
-const Teddy = require('../models/Teddy');
+const Teddy = require('../../JWDP5-master/models/Teddy');
 
 exports.getAllTeddies = (req, res, next) => {
   Teddy.find().then(
