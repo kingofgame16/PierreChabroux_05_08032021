@@ -21,8 +21,8 @@ let tableau = document.querySelector("tbody");
     
     for (let i = 0; i < basket.length; i++) {
 
-        let indexLigne = document.createElement('th');
-        indexLigne.textContent = i + 1;
+        let indexLigne = document.createElement('th','articleImage');
+        indexLigne.textContent = basket[i].imageUrl;
 
         let nameProduct = document.createElement('td');
         nameProduct.textContent = basket[i].name;
@@ -57,36 +57,6 @@ let tableau = document.querySelector("tbody");
 
 
 
-
-
-/* for(k=0; k < data.length; k++){
-
-        structurePanier = structurePanier +`
-        <div class="row m-2 pt-3 panierLine">
-            <div class="col-md-3 col-lg-2">
-                <img alt="${data.name}" class="img-fluid" src="${data.image}">
-            </div>
-            <div class="col-md-4">
-                <a href="produit.html?id=${data._id}"><h2>${data.name}</h2></a>
-                <p><strong>Quantité</strong> : ${data.quantite}</p>
-                <p><strong>Lentilles</strong> : ${data.varnished}</p>
-            </div>
-            <div class="col-md-5 col-lg-4"
-                <p class="prixProduitPanier"><strong>Prix : <span>${data.totalPrice} €</span></strong></p>   
-            </div>
-            <div class="col-md-1">
-                <button class="btn btn-danger mb-3" onclick="deleteItem('${data._id}')">Supprimer</button>  
-            </div>
-        </div>
-        `;
-}
-if(k == data.length){
-
-    Element3.innerHTML = structurePanier;
-}
-} */ 
-
-//const btnCommande = document.getElementById("btnCom");
 
 
 /* function calculePrice(priceProdUnit) {
