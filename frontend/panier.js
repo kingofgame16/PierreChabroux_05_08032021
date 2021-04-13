@@ -1,19 +1,65 @@
 let basket = JSON.parse(localStorage.getItem('basket'));
+let panierPart = document.querySelector('table');
 
 const basketTabElement = document.querySelector('.basket');
 
+//Panier vide
 if(basket !== null){
     basketTabElement.classList.replace('invisible','visible')
     document.querySelector('.etatPanier').classList.replace('visible','invisible')
 }
 
+//Panier non vide, affichage des produits localstorage
+let tableau = document.querySelector("tbody");
+
+    let productIds = [];
+
+    for (let i = 0; i < basket.length; i++) {
+        productIds.push(basket[i].id);
+    }
+
+    
+    for (let i = 0; i < basket.length; i++) {
+
+        let indexLigne = document.createElement('th');
+        indexLigne.textContent = i + 1;
+
+        let nameProduct = document.createElement('td');
+        nameProduct.textContent = basket[i].name;
+
+        let varnishProduct = document.createElement('td');
+        varnishProduct.textContent = basket[i].varnish;
+
+        let priceProduct = document.createElement('td');
+        priceProduct.textContent = basket[i].price;
+
+        let suppTab = document.createElement("button");
+        suppTab.innerHTML = "Delete";
+        suppTab.classList.add("btn", "btn-danger");
+        
+
+        let ligneTableau = document.createElement('tr');
+        ligneTableau.appendChild(indexLigne);
+        ligneTableau.appendChild(nameProduct);
+        ligneTableau.appendChild(varnishProduct);
+        ligneTableau.appendChild(priceProduct);
+        ligneTableau.appendChild(suppTab);
+
+        tableau.appendChild(ligneTableau);
+        panierPart.appendChild(tableau);
+    }
 
 
 
-/* }else{
-    let structurePanier =[]
 
-for(k=0; k < data.length; k++){
+
+
+
+
+
+
+
+/* for(k=0; k < data.length; k++){
 
         structurePanier = structurePanier +`
         <div class="row m-2 pt-3 panierLine">
@@ -38,7 +84,7 @@ if(k == data.length){
 
     Element3.innerHTML = structurePanier;
 }
-} */
+} */ 
 
 //const btnCommande = document.getElementById("btnCom");
 
