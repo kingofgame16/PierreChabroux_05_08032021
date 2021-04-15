@@ -28,7 +28,7 @@ let tableau = document.querySelector("tbody");
         nameProduct.textContent = basket[i].name;
 
         let varnishProduct = document.createElement('td');
-        varnishProduct.textContent = basket[i].varnish;
+        varnishProduct.textContent = basket[i].quantity;
 
         let priceProduct = document.createElement('td');
         priceProduct.textContent = basket[i].price/100 + " " + "euros";
@@ -53,16 +53,6 @@ let tableau = document.querySelector("tbody");
                 basket.classList.add("d-block");
             }
         }
-
-        function calculPrix(product) {
-            let totalPrice = 0;
-            for (let i = 0; i < product.length; i++) {
-                totalPrice += product[i].price;
-            }}
-
-
-
-
         let ligneTableau = document.createElement('tr');
         ligneTableau.appendChild(indexLigne);
         ligneTableau.appendChild(nameProduct);
