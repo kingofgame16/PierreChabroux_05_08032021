@@ -65,11 +65,11 @@ let tableau = document.querySelector("tbody");
     }
 
     const prixInHtml = document.getElementById("finalPrice");
-    if (localStorage.length > 0) {
+    if (basket.length > 0) {
         prixInHtml.innerHTML = calculPrixPanier() + " € (euros)";
         function calculPrixPanier() {
             let totalPriceItem = basket.reduce((accumulator, item) => {
-                return accumulator + item.totalPrice;
+                return accumulator + item.price/100;
             }, 0);
         
             return totalPriceItem;
