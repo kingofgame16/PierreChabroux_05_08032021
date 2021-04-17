@@ -31,14 +31,7 @@ let tableau = document.querySelector("tbody");
         quantityProduct.textContent = basket[i].quantity;
 
         let priceProduct = document.createElement('td');
-        priceProduct.textContent = basket[i].price/100 + " " + "euros";
-
-        function multiply() {
-            a = Number(basket[i].quantity.value);
-            b = Number(basket[i].price/100+""+"euros".value);
-            c = a * b;
-            document.getElementById('TOTAL').value = c;
-        }
+        priceProduct.textContent = basket[i].price/100*basket[i].quantity + " " + "euros";
 
         let suppTab = document.createElement("button");
         suppTab.innerHTML = "Delete";
@@ -76,7 +69,7 @@ let tableau = document.querySelector("tbody");
         prixInHtml.innerHTML = calculPrixPanier() + " € (euros)";
         function calculPrixPanier() {
             let totalPriceItem = basket.reduce((accumulator, item) => {
-                return accumulator + item.price/100;
+                return accumulator + item.price/100*quantity;
             }, 0);
         
             return totalPriceItem;
