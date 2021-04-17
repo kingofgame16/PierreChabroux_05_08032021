@@ -27,11 +27,18 @@ let tableau = document.querySelector("tbody");
         let nameProduct = document.createElement('td');
         nameProduct.textContent = basket[i].name;
 
-        let varnishProduct = document.createElement('td');
-        varnishProduct.textContent = basket[i].quantity;
+        let quantityProduct = document.createElement('td');
+        quantityProduct.textContent = basket[i].quantity;
 
         let priceProduct = document.createElement('td');
         priceProduct.textContent = basket[i].price/100 + " " + "euros";
+
+        function multiply() {
+            a = Number(basket[i].quantity.value);
+            b = Number(basket[i].price/100+""+"euros".value);
+            c = a * b;
+            document.getElementById('TOTAL').value = c;
+        }
 
         let suppTab = document.createElement("button");
         suppTab.innerHTML = "Delete";
@@ -56,7 +63,7 @@ let tableau = document.querySelector("tbody");
         let ligneTableau = document.createElement('tr');
         ligneTableau.appendChild(indexLigne);
         ligneTableau.appendChild(nameProduct);
-        ligneTableau.appendChild(varnishProduct);
+        ligneTableau.appendChild(quantityProduct);
         ligneTableau.appendChild(priceProduct);
         ligneTableau.appendChild(suppTab);
 

@@ -74,15 +74,4 @@ const addLocalStorage = (product) => {
 
     window.location.href = 'panier.html';
 }
-
-calculePrice(priceProdUnit)
-
-function calculePrice(priceProdUnit) {
-    let quantites = document.getElementById('quantiteProduit');
-    quantites.addEventListener('change', (event) => {
-        const result = document.getElementById('totalPrice');
-        result.textContent = `${priceProdUnit}` * `${event.target.value}`;
-    });
-
-
-}}
+}
