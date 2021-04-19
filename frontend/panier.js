@@ -76,3 +76,68 @@ let tableau = document.querySelector("tbody");
         };
     
     }
+
+
+const lastname = document.getElementById('lastName');
+const firstname = document.getElementById('firstName');
+const address = document.getElementById('address');
+const city = document.getElementById('city');
+const email = document.getElementById('email');
+
+const form = document.querySelector("#submitForm");
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault()
+
+    const contact = { // utilisateur à envoyer en objet en POST
+        firstName: firstname.value,
+        lastName: lastname.value,
+        address: address.value,
+        city: city.value,
+        email: email.value,
+    };
+
+    const products = []; 
+    const donnees = { contact, products }; 
+
+    basket.forEach((furniture) => {
+        products.push(furniture._id);
+    });
+
+
+    const options = {
+        method: "POST",
+        body: JSON.stringify(donnees),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    };
+
+    if (firstname == "" || lastname == "" || address == "" || city == "" || email == "") {
+        alert("Tous les champs doivent êtres remplis !")
+
+    } else {
+        fetch("https://ab-p5-api.herokuapp.com/api/furniture", options)
+            // reçoit les données du back
+            .then(response => { // me renvoie un premiere prommesse
+                if (response.ok) {
+                    return response.json() // Si response ok, retourne un objet json
+                } else {
+                    Promise.reject(response.status); // sinon, me retroune la cause de l'echec
+                };
+            })
+
+        // traitement pour l'obtention du numéro de commmande
+        .then((datas) => {
+            const orderId = datas.orderId;
+
+            window.location.href = `confirm.html?ncomm=${orderId}`;
+
+        })
+
+        .catch((error) => {
+            alert(error);
+        });
+    }
+
+});
