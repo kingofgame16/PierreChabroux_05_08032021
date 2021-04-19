@@ -104,7 +104,6 @@ form.addEventListener("submit", (e) => {
         products.push(furniture._id);
     });
 
-
     const options = {
         method: "POST",
         body: JSON.stringify(donnees),
