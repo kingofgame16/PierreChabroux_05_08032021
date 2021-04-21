@@ -93,12 +93,84 @@ form.addEventListener('submit', (e) => {
     e.preventDefault()
 
     const contact = { // utilisateur à envoyer en objet en POST
-        firstName: firstname.value,
-        lastName: lastname.value,
-        address: address.value,
-        city: city.value,
-        email: email.value,
+        firstName: document.getElementById('firstName').value,
+        lastName:  document.getElementById('lastName').value,
+        address: document.getElementById('address').value,
+        city: document.getElementById('city').value,
+        email: document.getElementById('email').value,
     };
+
+const texArlet = (value) =>{
+    return value + ': Chiffre et symbole non autorisé\n 3 caractères minimum, 20 maximum';
+}
+
+const regexcitynames = (value) =>{
+    return /^[A-Za-z]{3,20}$/.test(value)
+}
+
+const regexEmail = (value) =>{
+    return /^[W-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value)
+}
+const regexAddress = (value) =>{
+    return /^[A-Za-z0-9\s]{5,50}$/.test(value)
+}
+
+
+function lastNamecontrol(){
+const lastName = contact.lastName
+if(regexcitynames(lastName)){
+    return true;
+}else{
+    alert(texArlet('Nom'))
+    return false;
+}
+};
+
+function firstNamecontrol(){
+    const firstName = contact.firstName
+    if(regexcitynames(firstName)){
+        return true;
+    }else{
+        alert(texArlet('Prénom'))
+        return false;
+    }
+    };
+
+function citycontrol(){
+    const city= contact.city
+    if(regexcitynames(city)){
+        return true;
+    }else{
+        alert(texArlet('Ville'))
+        return false;
+    }
+    };
+
+function emailcontrol(){
+    const email = contact.email
+    if(regexEmail(email)){
+        return true;
+    }else{
+        alert(texArlet('email non valide'))
+        return false;
+        }
+        };
+
+function addresscontrol(){
+    const address = address.email
+    if(regexAddress(address)){
+        return true;
+    }else{
+        alert(texArlet('adresse non valide'))
+        return false;
+        }
+        };
+
+if(lastNamecontrol() && firstNamecontrol() && citycontrol() && emailcontrol() && addresscontrol()){
+    localStorage.setItem('contact', JSON.stringify(contact))
+}else{
+    alert('Veuillez bien remplir le formulaire')
+}
 
     const products = [];
 
@@ -128,7 +200,7 @@ form.addEventListener('submit', (e) => {
         .then(data => {
             localStorage.setItem('orderId', JSON.stringify([data.orderId]));
             localStorage.setItem('totalPrice', JSON.stringify([totalPrice]));
-            //window.location.href = 'confirmation.html';
+            window.location.href = 'confirmation.html';
         })
         .catch((error) => {
             alert(error);
