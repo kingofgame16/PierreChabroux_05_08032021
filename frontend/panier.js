@@ -109,7 +109,7 @@ const regexcitynames = (value) =>{
 }
 
 const regexEmail = (value) =>{
-    return /^[W-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value)
+    return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value)
 }
 const regexAddress = (value) =>{
     return /^[A-Za-z0-9\s]{5,50}$/.test(value)
@@ -153,18 +153,18 @@ function emailcontrol(){
     }else{
         alert(texArlet('email non valide'))
         return false;
-        }
-        };
+    }
+    };
 
 function addresscontrol(){
-    const address = address.email
+    const address = contact.address
     if(regexAddress(address)){
         return true;
     }else{
         alert(texArlet('adresse non valide'))
         return false;
-        }
-        };
+    }
+    };
 
 if(lastNamecontrol() && firstNamecontrol() && citycontrol() && emailcontrol() && addresscontrol()){
     localStorage.setItem('contact', JSON.stringify(contact))
