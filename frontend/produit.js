@@ -1,4 +1,4 @@
-const Element2 = document.getElementById('main');
+const ProductElement = document.getElementById('main');
 const params = new URLSearchParams(window.location.search);
     
     
@@ -20,7 +20,7 @@ fetch(`http://localhost:3000/api/furniture/${params.get('id')}`)
     })
 
     //--Ecriture du HTML en dynamique
-    Element2.innerHTML += `
+    ProductElement.innerHTML += `
             <div class="card card-body col-12 col-lg-6">
                 <img alt="${data.name}" class="img-fluid" src="${data.imageUrl}">
             </div>
