@@ -28,8 +28,6 @@ fetch(`http://localhost:3000/api/furniture/${params.get('id')}`)
                 <h2>${data.name}</h2>
                 <p>${data.description}</p>
                 <form>
-                <label for="quantiteProduit">Quantité:</label>
-                        <input id ="quantiteProduit" type="number" min="1" value="1"/>
                         <div class="col-auto my-1 pb-5 mt-4">
                             <label class="mr-sm-2" for="inlineFormCustomSelect">Vernis</label>
                             <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
