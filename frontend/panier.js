@@ -184,7 +184,7 @@ form.addEventListener('submit', (e) => {
         products
     };
 
-    const options = {
+    const finalCommand = {
         method: 'POST',
         body: JSON.stringify(donnees),
         headers: {
@@ -192,7 +192,7 @@ form.addEventListener('submit', (e) => {
         }
     };
 
-    fetch('http://localhost:3000/api/furniture/order', options)
+    fetch('http://localhost:3000/api/furniture/order', finalCommand)
         .then(response => { // me renvoie un premiere prommesse
             if (response.ok) {
                 return response.json()
