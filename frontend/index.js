@@ -31,5 +31,5 @@ const displayProducts = () => {
     });
 }
 
-displayProducts();;
+displayProducts();
 

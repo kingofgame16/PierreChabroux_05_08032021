@@ -1,8 +1,10 @@
+'use strict'
 const ProductElement = document.getElementById('main');
 const params = new URLSearchParams(window.location.search);
     
     
 //j'injecte l'id du produit clické dans le fetch
+const displayProduct = () => {
 fetch(`http://localhost:3000/api/furniture/${params.get('id')}`)
 .then(response => {
     if (response.ok) {
@@ -54,7 +56,9 @@ fetch(`http://localhost:3000/api/furniture/${params.get('id')}`)
         alert ('Produit bien ajouté au panier')
         addLocalStorage(productSelected)
     })
-})
+})}
+
+displayProduct ();
 
 const addLocalStorage = (product) => {
     if (localStorage.getItem('basket') === null) {
