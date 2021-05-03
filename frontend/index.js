@@ -1,6 +1,8 @@
+'use strict';
 const CardElement = document.getElementById('main'); //récupération id=main
 
-fetch('http://localhost:3000/api/furniture') //fetch sur l'url de l'API
+const displayProducts = () => {
+    fetch('http://localhost:3000/api/furniture') //fetch sur l'url de l'API
     .then(response => { // me renvoie un premiere prommesse
         if (response.ok) {
             return response.json() // Si response ok, retourne un objet json
@@ -27,3 +29,7 @@ fetch('http://localhost:3000/api/furniture') //fetch sur l'url de l'API
     }).catch((error) => {
         console.log(error);
     });
+}
+
+displayProducts();;
+
