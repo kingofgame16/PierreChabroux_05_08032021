@@ -45,9 +45,8 @@ for (let i = 0; i < basket.length; i++) {
     let suppTab = document.createElement('button');
     suppTab.innerHTML = 'Supprimer';
     suppTab.classList.add('btn', 'btn-danger', 'text-reset');
-    suppTab.onclick = deleteArticle;
-
-    function deleteArticle(i) {
+    
+    const deleteArticle = (i) => {
         if (basket.length >= 2) {
             alert('Le produit a été retiré du panier !');
             let index = basket.indexOf(basket[i]);
@@ -62,13 +61,14 @@ for (let i = 0; i < basket.length; i++) {
             basket.classList.add('d-block');
         }
     }
+    suppTab.onclick = deleteArticle;
+
     let ligneTableau = document.createElement('tr');
     ligneTableau.appendChild(nameProduct);
     ligneTableau.appendChild(quantityProduct);
     ligneTableau.appendChild(priceProduct);
     ligneTableau.appendChild(subTotal)
     ligneTableau.appendChild(suppTab);
-
     tableau.appendChild(ligneTableau);
     panierPart.appendChild(tableau);
 }
@@ -79,7 +79,6 @@ function calculPrixPanier() {
     totalPrice = basket.reduce((accumulator, item) => {
         return accumulator + item.price / 100 * item.quantity;
     }, 0);
-
     return totalPrice;
 };
 
@@ -121,8 +120,7 @@ form.addEventListener('submit', (e) => {
         return /^[A-Za-z0-9\s]{5,50}$/.test(value)
     }
 
-
-    function lastNamecontrol() {
+    const lastNamecontrol = () => {
         const lastName = contact.lastName
         if (regexcitynames(lastName)) {
             return true;
@@ -132,7 +130,7 @@ form.addEventListener('submit', (e) => {
         }
     };
 
-    function firstNamecontrol() {
+    const firstNamecontrol = () => {
         const firstName = contact.firstName
         if (regexcitynames(firstName)) {
             return true;
@@ -142,7 +140,7 @@ form.addEventListener('submit', (e) => {
         }
     };
 
-    function citycontrol() {
+    const citycontrol = () => {
         const city = contact.city
         if (regexcitynames(city)) {
             return true;
@@ -152,7 +150,7 @@ form.addEventListener('submit', (e) => {
         }
     };
 
-    function emailcontrol() {
+    const emailcontrol = () => {
         const email = contact.email
         if (regexEmail(email)) {
             return true;
@@ -162,7 +160,7 @@ form.addEventListener('submit', (e) => {
         }
     };
 
-    function addresscontrol() {
+    const addresscontrol= () => {
         const address = contact.address
         if (regexAddress(address)) {
             return true;
@@ -212,6 +210,5 @@ form.addEventListener('submit', (e) => {
     } else {
         alert('Veuillez bien remplir le formulaire')
     }
-
     
 });
