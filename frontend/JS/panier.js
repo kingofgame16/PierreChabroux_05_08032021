@@ -210,5 +210,5 @@ form.addEventListener('submit', (e) => {
     } else {
         alert('Veuillez bien remplir le formulaire')
     }
-    
+    localStorage.clear()
 });
